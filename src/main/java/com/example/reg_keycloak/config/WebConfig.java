@@ -1,6 +1,5 @@
-package com.example.reg_keycloak.controller;
+package com.example.reg_keycloak.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

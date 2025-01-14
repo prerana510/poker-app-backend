@@ -1,7 +1,7 @@
 package com.example.reg_keycloak.controller;
 
 import com.example.reg_keycloak.DTO.UserDTO;
-import com.example.reg_keycloak.KeycloakConfig;
+import com.example.reg_keycloak.config.KeycloakConfig;
 import com.example.reg_keycloak.service.KeyCloakService;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.representations.idm.RoleRepresentation;
@@ -14,20 +14,20 @@ import javax.ws.rs.core.Response;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.example.reg_keycloak.KeycloakConfig.realm;
+import static com.example.reg_keycloak.config.KeycloakConfig.realm;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(path = "/api/keycloak")
-public class KeyCloakController {
+public class RegistrationController {
 
     @Autowired
     KeyCloakService service;
 
     @PostMapping
-    public String addUser(@RequestBody UserDTO userDTO){
-        service.addUser(userDTO);
-        return "User Added Successfully.";
+    public ResponseEntity<List<UserRepresentation>>  addUser(@RequestBody UserDTO userDTO){
+        List<UserRepresentation> user1 = service.addUser(userDTO);
+        return ResponseEntity.ok(user1);
     }
 
     @GetMapping(path = "/{userName}")

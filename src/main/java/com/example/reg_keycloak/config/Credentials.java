@@ -1,4 +1,4 @@
-package com.example.reg_keycloak;
+package com.example.reg_keycloak.config;
 
 import org.keycloak.representations.idm.CredentialRepresentation;
 

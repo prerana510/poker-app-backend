@@ -12,15 +12,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/auth")
-public class AuthController {
+public class LoginController {
 
     private final JwtConverter jwtConverter;
     private final JwtDecoder jwtDecoder;
 
     @Autowired
-    public AuthController(JwtConverter jwtConverter, JwtDecoder jwtDecoder) {
+    public LoginController(JwtConverter jwtConverter, JwtDecoder jwtDecoder) {
         this.jwtConverter = jwtConverter;
         this.jwtDecoder = jwtDecoder;
     }

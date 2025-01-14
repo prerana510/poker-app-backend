@@ -1,8 +1,8 @@
 package com.example.reg_keycloak.service;
 
-import com.example.reg_keycloak.Credentials;
+import com.example.reg_keycloak.config.Credentials;
 import com.example.reg_keycloak.DTO.UserDTO;
-import com.example.reg_keycloak.KeycloakConfig;
+import com.example.reg_keycloak.config.KeycloakConfig;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
@@ -16,7 +16,7 @@ import java.util.List;
 public class KeyCloakService {
 
 
-    public void addUser(UserDTO userDTO){
+    public List<UserRepresentation> addUser(UserDTO userDTO){
         CredentialRepresentation credential = Credentials
                 .createPasswordCredentials(userDTO.getPassword());
         UserRepresentation user = new UserRepresentation();
@@ -29,6 +29,8 @@ public class KeyCloakService {
 
         UsersResource instance = getInstance();
         instance.create(user);
+        List<UserRepresentation> user1 = instance.search(userDTO.getUserName(), true);
+        return user1;
     }
 
     public List<UserRepresentation> getUser(String userName){

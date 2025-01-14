@@ -1,4 +1,4 @@
-package com.example.reg_keycloak;
+package com.example.reg_keycloak.config;
 
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.keycloak.OAuth2Constants;
